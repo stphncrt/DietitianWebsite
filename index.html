@@ -1,0 +1,280 @@
+<!--My website is a dynamic website developed for a dietitian. Users may interact with the website by inputting his/her body information so as to calculate their Body Mass Index. Getting the value of the BMI user may see his/her tailor-made diet table by clicking a button. (There is only a table in reality because this site was developed for the purpose of a demo). 
+
+The table pops up just below the calculation part. Once you click anywhere on the page it disappears.
+
+Users find Dietitian's background and profile in the following part.
+
+After the profile section, diet programs for specific purposes show up.
+By clicking on the image one may see the details of the clicked diet program.
+
+Below diet programs, reviews of the previous clients come in as a carousel.
+
+At last, contacts of the dietitian were provided in the footer. -------->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!---------- Nav-Bar starts---------------->
+    <nav class="navbarContainer">
+        <ul class="navbarlistContainer">
+            <li class="navbarItem" id='navbarIcon'>
+                <a class="gotoSection" href="#bmiSection"> <svg viewBox="0 0 448 512" width="40" title="bars">
+                <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+              </svg></a>
+            </li>
+            <li class="navbarItem"><a class="gotoSection" href="#aboutContainer"> About</a></li>
+            <li class="navbarItem"><a class="gotoSection" href="#dietPrograms"> Diet Programs</a></li>
+            <li class="navbarItem"><a class="gotoSection" href="#dietPrograms"> Videos</a></li>
+            <li class="navbarItem"><a class="gotoSection" href="#carousel"> Reviews</a></li>
+            <li class="navbarItem"><a class="gotoSection" href="#footerContainer"> Contacts</a></li>
+        </ul>
+    </nav>
+    <!--------Body Mass Index(BMI) Calculation Starts---->
+
+    <section id="bmiSection">
+        <div id="Bmi_Container">
+            <img id='dietImg' src='https://images.unsplash.com/photo-1629358101753-531fa5a2f661?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTgwNDc0NQ&ixlib=rb-1.2.1&q=85' </div>
+            <div id="bmiCalcContainer">
+                <img id="weight" src="https://images.unsplash.com/photo-1597820901084-1b9b8ab61f70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTg4Mjg4OA&ixlib=rb-1.2.1&q=80&w=400" />
+
+                <input class="bmi_node" type="number" id="weigthInput" placeholder="Please type your weigth as kg.." />
+                <input class="bmi_node" type="number" id="lengthInput" placeholder="Please enter your length as cm" />
+                <button class="bmi_node" id="calc_btn">Click for Calculate</button>
+                <button class='bmi_node' id='diet_btn' onClick=buttonClickHandler()>Click Here to see your Diet table</button>
+                <h2 class="bmi_node" id="BMI"></h2>
+            </div>
+    </section>
+    <!---------Body Mass Index(BMI) Calculation Ends----->
+    <hr />
+
+
+    <!------ Diet Table Section Starts --------->
+    <div id='tableContainer'>
+
+        <table id='dietTable'>
+            <caption>Your Weekly Diet Table. Be strict on your list.</caption>
+            <tr>
+                <th id='diet_day'>Diet/Day</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <th>Breakfast</td>
+                    <td>Egg<br />Chees<br />Olive</td>
+                    <td>Potato<br />Tomato<br /></td>
+                    <td>Yoghurt<br />Cereal</td>
+                    <td>Bread<br />Jam<br>Cucumber</td>
+                    <td>Yoghurt<br />Crop</td>
+                    <td>Tea<br />Butter<br>Bread</td>
+                    <td>Coffie<br />Donat</td>
+            </tr>
+            <tr>
+                <th>Lunch</td>
+                    <td>Egg<br />Spinach<br />Olive</td>
+                    <td>Potato<br />Tomato<br />Fish</td>
+                    <td>Yoghurt<br />Kebap</td>
+                    <td>Mushroom<br />Cola<br />Bread</td>
+                    <td>Burger<br />Potato<br />Chips</td>
+                    <td>Soup<br />Brocoli<br />Fish</td>
+                    <td>Salad<br />Stake<br />Beer</td>
+            </tr>
+            <tr>
+                <th>Dinner</td>
+                    <td>Mushroom<br />Cola<br />Bread</td>
+                    <td>Potato<br />Tomato<br />Fish</td>
+                    <td>Yoghurt<br />Kebap</td>
+                    <td>Salad<br />Stake<br />Beer</td>
+                    <td>Pizza<br />Ale<br />Salad</td>
+                    <td>Meatball<br />Rice<br />Ayran</td>
+                    <td>Fish<br />Soup<br />Wine</td>
+
+            </tr>
+        </table>
+        <hr>
+    </div>
+
+    <!------ Diet Table Section Starts --------->
+
+    <!------ About Section Starts --------->
+
+    <div id="aboutContainer">
+        <h2>My Profile</h2>
+        <img id="profileImg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTkxODg3Mw&ixlib=rb-1.2.1&q=80&w=400" />
+        <p id="profileText">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. <span id='span'>Ipsum laborum ratione cum vero eius cumque illum unde,</span> exercitationem architecto quis quisquam corporis consequatur neque minus, repellendus hic, dolores ea corrupti
+            accusamus minima. Culpa dicta eum placeat fugit, nobis tempore mollitia rerum veritatis itaque eligendi quae eius nihil temporibus modi fuga architecto distinctio minima autem ratione recusandae quibusdam porro ducimus. Eius illum, commodi
+            ex aliquid ullam odit, consequatur voluptates explicabo consectetur, deserunt obcaecati ducimus fuga reiciendis odio quis vel! Accusamus aspernatur, aliquid deserunt quam porro animi expedita, velit nesciunt culpa ut delectus. Esse, adipisci.
+            Sapiente beatae dignissimos optio fuga in. Porro quisquam tempora deleniti voluptatum, repellendus accusamus quis minus ut ducimus aut officiis! Eius quam mollitia similique accusamus voluptate earum deleniti eum repellendus, totam numquam
+            consectetur necessitatibus repellat magni aspernatur vero,<br><br> architecto beatae maiores ad ratione, et sed quidem delectus. Doloremque consequuntur dignissimos laboriosam, earum tempora fugiat facere perspiciatis, omnis asperiores adipisci
+            ipsum placeat sed aliquid! Quae quam harum consectetur error. Eius, quos? Accusamus eligendi distinctio error ab, libero odit doloribus unde quasi voluptatibus cumque, voluptas non optio nesciunt, repellat neque eaque architecto a. Atque unde
+            inventore repellendus doloribus, rem deleniti nesciunt ab blanditiis iusto porro quas molestiae mollitia fuga, soluta quaerat placeat dolorem sapiente? Accusamus beatae sed optio eveniet obcaecati nam laudantium architecto ipsum. Quis atque
+            velit libero animi reiciendis dignissimos ullam ipsa magnam, aliquid commodi facere, fugit alias necessitatibus dolor nam vel nisi tenetur officia quia aliquam. Ipsam at perspiciatis impedit vitae similique rerum cupiditate enim quod mollitia
+            laboriosam, dolorum ipsa non minus nesciunt hic? Magni doloremque impedit voluptatem? Illo dolorem, distinctio, nisi, eligendi iste consequatur vel praesentium velit at provident delectus excepturi non recusandae laboriosam quisquam magni
+            harum enim ut. Quibusdam, sed animi sequi veniam<br><br><strong>eum molestiae vero vel quam</strong> dolores optio modi voluptatem? Quod vero necessitatibus doloremque inventore reiciendis! Consequuntur nulla pariatur quos. Sit doloremque
+            cum dicta facere debitis illum aut id alias tempora, labore ducimus vero rerum eveniet est blanditiis dolorum culpa velit ipsam repellat placeat ratione quibusdam fugiat. Corrupti eveniet, vitae culpa saepe placeat ipsa voluptatibus non tempora
+            consequatur, rerum vero iste unde, eius architecto asperiores. Quis adipisci iure atque sapiente corrupti consequatur numquam, repudiandae sed vitae error quos? Aperiam quidem ea maxime nobis eligendi saepe voluptate repudiandae magni impedit
+            quaerat consectetur, ipsa iste corrupti? Fugiat eius cumque unde inventore nulla tempore consequuntur? Aut sint mollitia, recusandae quis magnam optio sequi, libero vero nemo fugiat repudiandae. <br><br><em>Ipsum quisquam nobis voluptatum doloribus</em>            debitis expedita, magni iusto, accusamus iste dignissimos minus quas dolores impedit nam, fugiat ullam dolor voluptate doloremque quae facilis corporis dolorum! Ipsum quaerat provident possimus, quas soluta optio suscipit maxime adipisci eveniet
+            perspiciatis quos, harum ut, veniam earum dolor unde id et distinctio nisi corrupti incidunt deleniti. Nobis mollitia ipsum vero incidunt nam odio, molestiae explicabo reprehenderit ipsam? Reiciendis amet delectus ad vero blanditiis! Aliquam
+            quasi pariatur enim itaque a natus nostrum tempore expedita? Fugit fuga perferendis illo rem quasi at? Neque, quidem blanditiis dolorum unde quisquam perspiciatis dignissimos provident enim cum laboriosam in libero ipsam nemo at illo voluptates,
+            obcaecati facere accusantium tempora! Nam cum mollitia autem, quibusdam itaque, id delectus beatae nihil iure alias harum dicta accusamus ab quas totam consequuntur, suscipit accusantium ipsum modi natus. Possimus dicta fugiat beatae officiis
+            minus quod voluptate explicabo vero nulla ullam commodi totam repellat quidem soluta tempora repudiandae adipisci rem, magnam iusto neque? <br><br>Voluptatum illo, est, recusandae eos ad et autem totam in, earum inventore necessitatibus consectetur
+            modi! Aut cumque ducimus sunt dolorum illum aspernatur? Aliquid, quis nam! Optio eius saepe voluptatem soluta ipsum tempore dolorum autem, assumenda recusandae ipsa hic at ipsam suscipit architecto corrupti illo iste temporibus vitae perferendis
+            nobis deleniti ut. Impedit fugit ab, blanditiis quos et numquam dolore aperiam necessitatibus. Dolorem velit, incidunt facilis repellendus perferendis praesentium odio, rerum laboriosam tenetur vel libero provident aut cumque at nam doloribus?
+            Nobis, minima et officia ipsa, dolor ea quasi eius eos consectetur consequuntur suscipit beatae, velit facere harum quia. Doloribus, facilis modi ab quam delectus blanditiis officiis, assumenda, illo numquam corrupti non! Exercitationem architecto
+            magni sed amet voluptatem, tempore sequi autem animi praesentium temporibus, sapiente repudiandae cumque nesciunt, unde laudantium? Inventore quia exercitationem culpa <span style="color:red">nobis exercitationem </span>quaerat cumque saepe
+            quod recusandae quidem sed sint sequi assumenda, labore molestias, vel reiciendis modi architecto ea delectus similique minus adipisci esse eos illo. Consequatur quibusdam commodi dolorem debitis tempora vero, harum ut numquam quisquam, aspernatur
+            recusandae impedit deleniti nam laborum inventore incidunt rerum? Commodi ipsa molestiae fugiat cupiditate reprehenderit illo voluptates perferendis eligendi, maiores ratione doloribus ullam eos blanditiis laboriosam numquam sed, amet assumenda,
+            eius hic doloremque totam neque unde autem. ullam voluptatibus nisi quaerat, repellat impedit eius voluptatem veniam amet aliquam necessitatibus eos iste minus voluptates omnis a animi molestiae. Sunt, quisquam fugiat incidunt laudantium maxime
+            dolorem rem ipsa voluptatum a tempore totam veniam similique, nemo ad ea! Nostrum voluptatum iste, aliquid repellat, soluta unde laboriosam natus quod blanditiis obcaecati doloribus corrupti, excepturi ut dolores consequuntur sunt!<br>
+            <a href='https://google.com'>Unde magnam illum dolorum</a>
+        </p>
+    </div>
+
+    <!--------- About Section Ends ---------->
+    <hr />
+    <!-----------Diet Programs section Starts -------------->
+
+    <div id="dietPrograms"> </div>
+    <div id='modalContainer' class='modal'>
+
+        <div id='modal'>
+            <div>
+                <h2 id="modalTitle"></h2>
+                <img id='modalImg' src='' alt="">
+                <p id="modalDesc"></p>
+
+            </div>
+            <div id='closeMark' onClick=closeModal()>
+                <!--Closing Modal by Clicking 'x' mark-->
+                x
+            </div>
+        </div>
+
+    </div>
+    <!-----------Diet Programs section Ends -------------->
+    <hr />
+
+    <!--------Review section Starts -------------->
+    <section id="carousel">
+        <div class="review mySlides fade">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1558203728-00f45181dd84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTk2NzM5NA&ixlib=rb-1.2.1&q=80&w=400" id="person-img" alt="Profile Photo" />
+            </div>
+            <h4 id="authorName">Jone Shire</h4>
+            <p id="job">UX Designer</p>
+            <p id="review">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore nam aperiam accusantium aliquid cumque ex esse fugit, commodi laboriosam, fuga qui repudiandae expedita ipsa aspernatur doloribus asperiores delectus praesentium ullam.
+            </p>
+        </div>
+        <div class="review mySlides fade">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTk2NzM5NA&ixlib=rb-1.2.1&q=80&w=400" id="person-img" alt="Profile Photo" />
+            </div>
+            <h4 id="authorName">Sara Jones</h4>
+            <p id="job">Photographer</p>
+            <p id="review">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis veritatis delectus, minima aut deserunt et nobis voluptatem?
+            </p>
+        </div>
+
+        <div class="review mySlides fade">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTk2NzM5NA&ixlib=rb-1.2.1&q=80&w=400" id="person-img" alt="Profile Photo" />
+            </div>
+            <h4 id="authorName">Stephen Howking</h4>
+            <p id="job">UI Developer</p>
+            <p id="review">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis velit labore odio. Qui dolor culpa hic, modi dicta ducimus quae suscipit. Veritatis mollitia, eos, quam nostrum iste similique corrupti, est quidem reiciendis deserunt nisi explicabo velit
+                tempore?
+            </p>
+        </div>
+        <div class="review mySlides fade">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMTk3MjE3Mg&ixlib=rb-1.2.1&q=80&w=400" id="person-img" alt="Profile Photo" />
+            </div>
+            <h4 id="authorName">Mc Carty</h4>
+            <p id="job">Instructor</p>
+            <p id="review">
+                <strong>Yakisikli cocuk.</strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum sunt vel, facere obcaecati omnis voluptate neque veritatis esse fugit dolores porro? Enim aperiam molestias corporis. Maiores, deleniti exercitationem?
+            </p>
+        </div>
+    </section>
+
+
+    <!-------------Footer Section Starts -------------------------->
+
+    <div id="footerContainer">
+        <div id="companybrief" class="footColumn">
+            <h3 class="rows">Company Summary</h3>
+            <p class='rows'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sint, fuga totam quia, et pariatur doloribus maiores debitis laborum labore voluptate harum sequi? Illo perspiciatis nostrum, similique corrupti ipsum harum!</p>
+            <div id="iconBox" class='rows'>
+                <svg class="footIcon" viewBox="0 0 448 512" width="40" title="user-graduate">
+                        <path d="M319.4 320.6L224 416l-95.4-95.4C57.1 323.7 0 382.2 0 454.4v9.6c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-9.6c0-72.2-57.1-130.7-128.6-133.8zM13.6 79.8l6.4 1.5v58.4c-7 4.2-12 11.5-12 20.3 0 8.4 4.6 15.4 11.1 19.7L3.5 242c-1.7 6.9 2.1 14 7.6 14h41.8c5.5 0 9.3-7.1 7.6-14l-15.6-62.3C51.4 175.4 56 168.4 56 160c0-8.8-5-16.1-12-20.3V87.1l66 15.9c-8.6 17.2-14 36.4-14 57 0 70.7 57.3 128 128 128s128-57.3 128-128c0-20.6-5.3-39.8-14-57l96.3-23.2c18.2-4.4 18.2-27.1 0-31.5l-190.4-46c-13-3.1-26.7-3.1-39.7 0L13.6 48.2c-18.1 4.4-18.1 27.2 0 31.6z" />
+                      </svg>
+                <svg class="footIcon" viewBox="0 0 320 512" width="40" title="walking">
+                        <path d="M208 96c26.5 0 48-21.5 48-48S234.5 0 208 0s-48 21.5-48 48 21.5 48 48 48zm94.5 149.1l-23.3-11.8-9.7-29.4c-14.7-44.6-55.7-75.8-102.2-75.9-36-.1-55.9 10.1-93.3 25.2-21.6 8.7-39.3 25.2-49.7 46.2L17.6 213c-7.8 15.8-1.5 35 14.2 42.9 15.6 7.9 34.6 1.5 42.5-14.3L81 228c3.5-7 9.3-12.5 16.5-15.4l26.8-10.8-15.2 60.7c-5.2 20.8.4 42.9 14.9 58.8l59.9 65.4c7.2 7.9 12.3 17.4 14.9 27.7l18.3 73.3c4.3 17.1 21.7 27.6 38.8 23.3 17.1-4.3 27.6-21.7 23.3-38.8l-22.2-89c-2.6-10.3-7.7-19.9-14.9-27.7l-45.5-49.7 17.2-68.7 5.5 16.5c5.3 16.1 16.7 29.4 31.7 37l23.3 11.8c15.6 7.9 34.6 1.5 42.5-14.3 7.7-15.7 1.4-35.1-14.3-43zM73.6 385.8c-3.2 8.1-8 15.4-14.2 21.5l-50 50.1c-12.5 12.5-12.5 32.8 0 45.3s32.7 12.5 45.2 0l59.4-59.4c6.1-6.1 10.9-13.4 14.2-21.5l13.5-33.8c-55.3-60.3-38.7-41.8-47.4-53.7l-20.7 51.5z" />
+                      </svg>
+                <svg class="footIcon" viewBox="0 0 512 512" width="40" title="closed-captioning">
+                        <path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM218.1 287.7c2.8-2.5 7.1-2.1 9.2.9l19.5 27.7c1.7 2.4 1.5 5.6-.5 7.7-53.6 56.8-172.8 32.1-172.8-67.9 0-97.3 121.7-119.5 172.5-70.1 2.1 2 2.5 3.2 1 5.7l-17.5 30.5c-1.9 3.1-6.2 4-9.1 1.7-40.8-32-94.6-14.9-94.6 31.2.1 48 51.1 70.5 92.3 32.6zm190.4 0c2.8-2.5 7.1-2.1 9.2.9l19.5 27.7c1.7 2.4 1.5 5.6-.5 7.7-53.5 56.9-172.7 32.1-172.7-67.9 0-97.3 121.7-119.5 172.5-70.1 2.1 2 2.5 3.2 1 5.7L420 222.2c-1.9 3.1-6.2 4-9.1 1.7-40.8-32-94.6-14.9-94.6 31.2 0 48 51 70.5 92.2 32.6z" />
+                      </svg>
+                <svg class="footIcon" viewBox="0 0 512 512" width="40" title="at">
+                        <path d="M256 8C118.941 8 8 118.919 8 256c0 137.059 110.919 248 248 248 48.154 0 95.342-14.14 135.408-40.223 12.005-7.815 14.625-24.288 5.552-35.372l-10.177-12.433c-7.671-9.371-21.179-11.667-31.373-5.129C325.92 429.757 291.314 440 256 440c-101.458 0-184-82.542-184-184S154.542 72 256 72c100.139 0 184 57.619 184 160 0 38.786-21.093 79.742-58.17 83.693-17.349-.454-16.91-12.857-13.476-30.024l23.433-121.11C394.653 149.75 383.308 136 368.225 136h-44.981a13.518 13.518 0 0 0-13.432 11.993l-.01.092c-14.697-17.901-40.448-21.775-59.971-21.775-74.58 0-137.831 62.234-137.831 151.46 0 65.303 36.785 105.87 96 105.87 26.984 0 57.369-15.637 74.991-38.333 9.522 34.104 40.613 34.103 70.71 34.103C462.609 379.41 504 307.798 504 232 504 95.653 394.023 8 256 8zm-21.68 304.43c-22.249 0-36.07-15.623-36.07-40.771 0-44.993 30.779-72.729 58.63-72.729 22.292 0 35.601 15.241 35.601 40.77 0 45.061-33.875 72.73-58.161 72.73z" />
+                      </svg>
+                <svg class="footIcon" viewBox="0 0 448 512" width="40" title="database">
+                        <path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z" />
+                      </svg>
+
+            </div>
+        </div>
+        <div id="contacts" class="footColumn">
+            <div class="rows">
+                <svg class='footIcon' viewBox=" 0 0 384 512 " width="40 " title="phone-volume ">
+                        <path d="M97.333 506.966c-129.874-129.874-129.681-340.252 0-469.933 5.698-5.698 14.527-6.632 21.263-2.422l64.817 40.513a17.187 17.187 0 0 1 6.849 20.958l-32.408 81.021a17.188 17.188 0 0 1-17.669 10.719l-55.81-5.58c-21.051 58.261-20.612
+                        122.471 0 179.515l55.811-5.581a17.188 17.188 0 0 1 17.669 10.719l32.408 81.022a17.188 17.188 0 0 1-6.849 20.958l-64.817 40.513a17.19 17.19 0 0 1-21.264-2.422zM247.126 95.473c11.832 20.047 11.832 45.008 0 65.055-3.95 6.693-13.108 7.959-18.718
+                        2.581l-5.975-5.726c-3.911-3.748-4.793-9.622-2.261-14.41a32.063 32.063 0 0 0 0-29.945c-2.533-4.788-1.65-10.662 2.261-14.41l5.975-5.726c5.61-5.378 14.768-4.112 18.718 2.581zm91.787-91.187c60.14 71.604 60.092 175.882 0 247.428-4.474 5.327-12.53
+                        5.746-17.552.933l-5.798-5.557c-4.56-4.371-4.977-11.529-.93-16.379 49.687-59.538 49.646-145.933 0-205.422-4.047-4.85-3.631-12.008.93-16.379l5.798-5.557c5.022-4.813 13.078-4.394 17.552.933zm-45.972 44.941c36.05 46.322 36.108 111.149
+                        0 157.546-4.39 5.641-12.697 6.251-17.856 1.304l-5.818-5.579c-4.4-4.219-4.998-11.095-1.285-15.931 26.536-34.564 26.534-82.572 0-117.134-3.713-4.836-3.115-11.711 1.285-15.931l5.818-5.579c5.159-4.947 13.466-4.337 17.856 1.304z " />
+                      </svg>
+                <h4>0686486796</h4>
+            </div>
+            <div class="rows">
+                <svg class='footIcon' viewBox="0 0 512 512" width="40" title="location-arrow">
+                        <path d="M444.52 3.52L28.74 195.42c-47.97 22.39-31.98 92.75 19.19 92.75h175.91v175.91c0 51.17 70.36 67.17 92.75 19.19l191.9-415.78c15.99-38.39-25.59-79.97-63.97-63.97z" />
+                      </svg>
+                <h4>Lange Kleigweg 80.2288GK Rijswijk </h4>
+
+            </div>
+            <div class="rows">
+                <svg class='footIcon' viewBox="0 0 576 512" width="40" title="mail-bulk">
+                        <path d="M160 448c-25.6 0-51.2-22.4-64-32-64-44.8-83.2-60.8-96-70.4V480c0 17.67 14.33 32 32 32h256c17.67 0 32-14.33 32-32V345.6c-12.8 9.6-32 25.6-96 70.4-12.8 9.6-38.4 32-64 32zm128-192H32c-17.67 0-32 14.33-32 32v16c25.6 19.2 22.4 19.2 115.2 86.4 9.6 6.4 28.8 25.6 44.8 25.6s35.2-19.2 44.8-22.4c92.8-67.2 89.6-67.2 115.2-86.4V288c0-17.67-14.33-32-32-32zm256-96H224c-17.67 0-32 14.33-32 32v32h96c33.21 0 60.59 25.42 63.71 57.82l.29-.22V416h192c17.67 0 32-14.33 32-32V192c0-17.67-14.33-32-32-32zm-32 128h-64v-64h64v64zm-352-96c0-35.29 28.71-64 64-64h224V32c0-17.67-14.33-32-32-32H96C78.33 0 64 14.33 64 32v192h96v-32z" />
+                      </svg>
+                <h4>azc@Rijswijk.com</h4>
+
+            </div>
+        </div>
+        <div id="map" class="footColumn">
+            <img id='mapImg' src="https://images.unsplash.com/photo-1508885368104-a4871600f1e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzMjAwMTgxMg&ixlib=rb-1.2.1&q=80&w=400" alt="">
+        </div>
+    </div>
+
+
+    <!-------------Footer Section Ends ---------------------------->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

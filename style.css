@@ -1,0 +1,523 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--primary-font);
+    background-color: hsl(210, 36%, 96%);
+    /*   background-size: cover; */
+}
+
+:root {
+    --clr-primary1: hsl(205, 90%, 95%);
+    --clr-primary-nav2: ;
+    --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+hr {
+    height: 2px;
+    border-width: 0;
+    color: #6d3924;
+    background-color: #6d3924;
+    margin: 2rem 0;
+}
+
+
+/* ===========NavBar Styles Starts==============*/
+
+.navbarlistContainer {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--clr-primary1);
+    height: 5rem;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    position: fixed;
+}
+
+.navbarItem {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.navbarItem:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+.gotoSection {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ===========NavBar Styles Ends==============*/
+
+
+/*=========About Style Starts==============*/
+
+#aboutContainer {
+    margin: 1% 15%;
+    display: block;
+}
+
+#profileText {
+    text-align: justify;
+}
+
+#profileImg {
+    float: right;
+    /*put the image to the far right and get the text wrapping it.*/
+    margin-left: 0.5rem;
+}
+
+#span {
+    text-decoration: underline;
+}
+
+
+/*=========About Style Ends================*/
+
+
+/* ===========BMI section Styles Starts==============*/
+
+#Bmi_Container {
+    display: flex;
+    flex-wrap: row wrap;
+    gap: 1rem;
+}
+
+#bmiSection {
+    width: auto;
+}
+
+#dietImg {
+    width: 75%;
+    height: 120vh;
+}
+
+#bmiCalcContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+    width: 25%;
+}
+
+.bmi_node {
+    height: 2rem;
+}
+
+#calc_btn,
+#diet_btn {
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: var(--clr-primary1);
+}
+
+#calc_btn:hover,
+#diet_btn:hover {
+    box-shadow: var(--light-shadow);
+    background-color: rgb(118, 164, 216);
+}
+
+::-webkit-input-placeholder {
+    font-size: 1rem;
+}
+
+#diet_btn {
+    display: none;
+}
+
+caption {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: var(--primary-font);
+    padding: 1rem;
+}
+
+
+/* ===========BMI section Styles Ends==============*/
+
+
+/* ===========Diet Table Styles Starts=============*/
+
+
+/* #tableContainer {
+    display: flex;
+    flex-direction: column;
+} */
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    border: 2px solid #6d3924;
+    width: 90%;
+    margin-left: 5%;
+}
+
+td {
+    background-color: #96d4d4;
+    text-align: center;
+}
+
+th {
+    width: 8rem;
+    height: 7rem;
+    background-color: bisque;
+}
+
+#diet_day {
+    background-color: #96d4d4;
+}
+
+
+/* ===========Diet Table Styles Ends=============*/
+
+
+/* ===========Program section Starts==============*/
+
+
+/* #programInfo {
+  } */
+
+#dietPrograms {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    /*   position: relative; */
+}
+
+.progbox {
+    border: 1px solid hsl(205, 90%, 95%);
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    flex-direction: column;
+    box-shadow: var(--ligth-shadow);
+    background-color: var(--clr-primary1);
+}
+
+.progbox:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+}
+
+#programInfo {
+    background-color: var(--clr-primary);
+    font-size: 1.5rem;
+    font-family: var(--primary-font);
+}
+
+
+/* ===========Modal=========================*/
+
+#modal {
+    width: 50%;
+    height: 30rem;
+    margin-left: 28rem;
+    margin-top: 2rem;
+    justify-self: center;
+    padding: 1%;
+    border: 1px solid #000;
+    display: flex;
+    background-color: white;
+    align-items: flex-start;
+    display: none;
+}
+
+#closeMark {
+    padding: 0.6rem;
+    height: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#closeMark:hover {
+    background-color: gray;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    /* shown in front */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#modalImg {
+    height: 25rem;
+    float: left;
+    margin-right: 2rem;
+}
+
+#modalDesc {
+    text-align: justify;
+}
+
+
+/*=================Modal Ends====================*/
+
+
+/*=============Program section Ends==============*/
+
+
+/*==============Review section starts==============*/
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    box-shadow: var(--light-shadow);
+    transition: all 0.9s linear;
+    text-align: center;
+    width: 30%;
+    margin: 2rem 4rem;
+    height: 40vh;
+}
+
+.review:hover {
+    box-shadow: var(--dark-shadow);
+}
+
+.img-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+}
+
+#person-img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+}
+
+#authorName {
+    margin-bottom: 0.25rem;
+    color: #000;
+}
+
+#job {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: hsl(205, 78%, 60%);
+    font-size: 0.85rem;
+}
+
+.overFlow {
+    overflow: hidden;
+}
+
+
+/* ==============Footer Section Starts================== */
+
+#footerContainer {
+    background-color: rgb(0, 0, 0, 0.8);
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+div>h3 {
+    color: #fff;
+}
+
+h3+p {
+    color: #fff;
+    width: 25rem;
+}
+
+#companybrief {
+    gap: 1rem;
+}
+
+.footColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    width: 30%;
+    height: auto;
+}
+
+.footIcon {
+    background-color: #fff;
+    border-radius: 20%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.3rem;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    position: relative;
+    left: 3rem;
+}
+
+h4 {
+    color: #fff;
+}
+
+#mapImg {
+    height: 100%;
+}
+
+#map {
+    height: 90%;
+    margin: 2rem 0rem;
+}
+
+
+/* ==============Footer Section Ends================== */
+
+
+/* =============view adjustment for the screens have a width narrower than 500px================*/
+
+@media only screen and (max-width: 500px) {
+    #footerContainer {
+        flex-flow: column wrap;
+    }
+    #Bmi_Container {
+        display: flex;
+        flex-direction: column nowrap;
+        gap: 1rem;
+    }
+    .footColumn {
+        margin: 2rem 0;
+        width: 90%;
+    }
+    .review {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        padding: 1.5rem 2rem;
+        border-radius: 0.25rem;
+        box-shadow: var(--light-shadow);
+        transition: all 0.9s linear;
+        text-align: align;
+        width: 90%;
+        height: 60vh;
+    }
+    .navbarItem {
+        display: none;
+    }
+    #navbarIcon {
+        display: block;
+    }
+    #Bmi_Container {
+        flex-flow: column;
+    }
+    #bmiCalcContainer {
+        width: 80%;
+        align-self: center;
+    }
+    #dietImg {
+        width: 80%;
+        align-self: center;
+    }
+    #aboutContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    #profileText {
+        text-align: justify;
+        height: 15rem;
+        overflow: hidden;
+    }
+    #dietImg {
+        display: none;
+    }
+    span {
+        display: none;
+    }
+    caption {
+        font-size: small;
+        font-weight: bold;
+        font-family: var(--primary-font);
+        padding: 0.2rem;
+    }
+    th {
+        width: 2rem;
+        height: 2.5rem;
+        background-color: bisque;
+    }
+    table {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: small;
+        border: 1px solid #6d3924;
+        width: 90%;
+        margin-left: 0%;
+    }
+    #modal {
+        width: 90%;
+        height: 25rem;
+        margin-left: 1rem;
+        margin-top: 2rem;
+        justify-self: center;
+        padding: 1%;
+        border: 1px solid #000;
+        display: flex;
+        background-color: white;
+        align-items: flex-start;
+        display: none;
+        overflow: scroll;
+    }
+    #modalImg {
+        height: 15rem;
+        float: left;
+        margin-right: 1rem;
+    }
+}
